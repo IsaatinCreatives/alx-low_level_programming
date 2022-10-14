@@ -3,12 +3,15 @@
 #include <stdio.h>
 
 /**
- * Main - Prints if number is positive, zero or negative
- * Return: 1
+ * main - Prints if number is positive, zero or negative
+ *
+ * Return: 0
  */
+
 int main(void)
 {
 	int n;
+
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
 
