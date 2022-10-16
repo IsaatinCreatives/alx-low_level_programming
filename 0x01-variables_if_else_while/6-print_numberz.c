@@ -2,7 +2,7 @@
 
 /**
  * main - Prints all single digit numbers of base 10 starting from 0 
- * using putchar.
+ *        using putchar.
  *
  * Return: 0.
  */
