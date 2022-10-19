@@ -1,22 +1,18 @@
 #include "main.h"
 
 /**
- * main - This program prints the phrase _putchar
+ * print_alphabet - Starting point
  *
- * Return: 0
+ * Return: Always 0.
  */
-int main(void)
+void print_alphabet(void)
 {
-	char ch[] = "_putchar";
+	char c;
 
-	int i;
-
-	for (i = 0; ch[i] != '\0'; i++)
+	for (c = 'a'; c <= 'z'; c++)
 	{
-		_putchar(ch[i]);
+		_putchar(c);
 	}
 
 	_putchar('\n');
-
-	return (0);
 }
