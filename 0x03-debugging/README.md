@@ -1,1 +1,1 @@
-0x03. C - Debugging
+The task in this project is to read and debug the line of codes given
