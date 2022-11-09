@@ -36,8 +36,7 @@ int count_words(char *str)
 }
 
 /**
- *
- * * look_pos - function that stores the begining and the end position of a word
+ * look_pos - function that stores the begining and the end position of a word
  * in a string
  * @str: pointer to the string
  * @pos: pointer ti the array used to store the positions
@@ -117,7 +116,6 @@ int print_words(int *pos, char **m, char *str, int words)
 }
 
 /**
- *
  * strtow - function that returns a pointer to an array of strings (words)
  *
  * Return: pointer to the array
