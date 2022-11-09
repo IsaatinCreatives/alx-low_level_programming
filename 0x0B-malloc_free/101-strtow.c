@@ -22,27 +22,18 @@ int count_words(char *str)
 		if ((*(str + i) == ' ' || *(str + i + 1) == 0) && flagbs)
 		{
 			flagbs = 0;
-
 			words++;
-
 		}
-
 		if (*(str + i) != ' ')
 			flagbs = 1;
-
 		i++;
-
 	}
-
 	if (*(str + i - 1) != ' ' && *(str + i - 2) == ' ')
 		words++;
-
 	if (i == 1 && *str != ' ')
 		words++;
-
 	return (words);
 }
-
 
 /**
  *
@@ -60,30 +51,25 @@ void look_pos(char *str, int *pos)
 	int i = 0;
 
 	while (*(str + i))
-
 	{
 		if (*(str + i) != ' '  && *(str + i + 1) == 0 && flagw)
 		{
 			*(pos + k) = i;
 			*(pos + k + 1) = i;
 		}
-
 		if (*(str + i) != ' ' && *(str + i) != 0 && flagw)
 		{
 			flagw = 0;
 			*(pos + k) = i;
 			k++;
 		}
-
 		if (*(str + i + 1) == 0 && (flagw == 0))
 			*(pos + k) = i;
-
 		if (*(str + i + 1) == ' ' && *(str + i) != ' ')
 		{
 			*(pos + k) = i;
 			k++;
 		}
-
 		if (*(str + i) == ' ')
 			flagw = 1;
 		i++;
@@ -113,7 +99,6 @@ int print_words(int *pos, char **m, char *str, int words)
 		int p2 = *(pos + b1 + 1);
 		int sz = p2 - p1 + 2;
 		*(m + b) = (char *)malloc(sizeof(char) * (sz));
-
 		if (*(m + b) == NULL)
 		{
 			for (b = b - 1; b >= 0; b--)
@@ -122,7 +107,6 @@ int print_words(int *pos, char **m, char *str, int words)
 			free(pos);
 			return (1);
 		}
-
 		for (l = 0; l < sz - 1; l++, p1++)
 			*(*(m + b) + l) = *(str + p1);
 		*(*(m + b) + l) = '\0';
@@ -150,13 +134,11 @@ char **strtow(char *str)
 	if (str == NULL || *str == 0)
 		return (NULL);
 	words = count_words(str);
-
 	if (words == 0)
 	{
 		return (NULL);
 	}
 	m = (char **) malloc((sizeof(char *)));
-
 	if (m == NULL)
 	{
 		for (words = words - 1; words >= 0; words--)
@@ -165,7 +147,6 @@ char **strtow(char *str)
 		return (NULL);
 	}
 	pos = (int *)malloc(sizeof(int) * words * 2);
-
 	if (pos == NULL)
 	{
 		free(m);
@@ -173,7 +154,6 @@ char **strtow(char *str)
 		return (NULL);
 	}
 	look_pos(str, pos);
-
 	if (print_words(pos, m, str, words))
 	{
 		return (NULL);
