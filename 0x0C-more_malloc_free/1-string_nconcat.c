@@ -1,19 +1,25 @@
-#include "holberton.h"
+#include "main.h"
 #include <stdlib.h>
 
 /**
- * string_nconcat - Concatenates two strings using at most an inputted number of bytes.
-  * @s1: The first string.
-  * @s2: The second string.
-  * @n: The maximum number of bytes of s2 to concatenate to s1.
-  *
-  * Return: If the function fails - NULL.
-  *         Otherwise - a pointer to the concatenated space in memory.
-  */
+ * string_nconcat - concatenates two strings
+ * @s1: first string
+ * @s2: second string
+ * @n: the number of bytes to include of @s2
+ *
+ * Return: newly allocated space in memory;
+ * NULL if the function fails
+ */
+
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	char *concat;
-	unsigned int len = n, index;
+	char *ar;
+	unsigned int i = 0;
+	unsigned int j = 0;
+	unsigned int m;
+	unsigned int p;
+	unsigned int k = 0;
+	unsigned int len;
 
 	if (s1 == NULL)
 		s1 = "";
@@ -21,24 +27,27 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (s2 == NULL)
 		s2 = "";
 
-	for (index = 0; s1[index]; index++)
-		len++;
+	while (s1[i])
+		i++;
 
-	concat = malloc(sizeof(char) * (len + 1));
+	while (s2[j])
+		j++;
 
-	if (concat == NULL)
+	if (j > n)
+		j = n;
+
+	len = i + j;
+
+	ar = malloc(sizeof(char) * (len + 1));
+	if (ar == NULL)
 		return (NULL);
 
-	len = 0;
+	for (p = 0; p < i; p++)
+		ar[k++] = s1[p];
 
-	for (index = 0; s1[index]; index++)
+	for (m = 0; m < j; m++)
+		ar[k++] = s2[m];
 
-		concat[len++] = s1[index];
-
-	for (index = 0; s2[index] && index < n; index++)
-		concat[len++] = s2[index];
-
-	concat[len] = '\0';
-
-	return (concat);
+	ar[k] = '\0';
+	return (ar);
 }
