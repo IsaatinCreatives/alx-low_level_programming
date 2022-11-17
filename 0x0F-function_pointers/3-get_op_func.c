@@ -3,15 +3,15 @@
 #include "3-calc.h"
 
 /**
- *get_op_func-Picks correct operator
- *@s:parameter 1
+ * get_op_func - Selects correct function to perform based on @s
+ * @s: The operator
  *
- *Return:Integer
+ * Return: The pointer to the operator's function or
+ * NULL if not found
  */
 
 int (*get_op_func(char *s))(int, int)
 {
-	int i;
 	op_t ops[] = {
 		{"+", op_add},
 		{"-", op_sub},
@@ -20,14 +20,16 @@ int (*get_op_func(char *s))(int, int)
 		{"%", op_mod},
 		{NULL, NULL}
 	};
+	int i;
+
 	i = 0;
 
-	while (i <= 5)
+	while (i < 5)
 	{
-		if (*s == *ops[i].op && s[1] == '\0')
+		if (*(ops[i].op) == *s)
 			return (ops[i].f);
 		i++;
 	}
-	printf("Error\n");
-	exit(99);
+
+	return (ops[i].f);
 }
